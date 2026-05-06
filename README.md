@@ -1,5 +1,143 @@
-# University Database System - SQL Migrations
+# University Database — SQL Migrations
+
+A fully-relational university database schema built for **PostgreSQL / Supabase**.  
+It tracks users, agents, support tickets, SLA policies, assignment history, and comments.
+
+---
+
+## Run Order
+
+| File | Purpose |
+|------|---------|
+| [`001_init.sql`](001_init.sql) | Create all tables, constraints, and indexes |
+| [`002_seed_data.sql`](002_seed_data.sql) | Insert sample/seed data |
+| [`002_triggers.sql`](002_triggers.sql) | Add triggers for automation & business rules (currently only 1) |
+| [`003_views.sql`](003_views.sql) | Create a dashboard view & more (Currently only 1) |
+| [`004_queries_example.sql`](004_queries_example.sql) | Example SELECT / UPDATE / DELETE queries |
+
+> Additional deep-dives are in [`docs/`](docs/).
+
+---
 
 ## Entity-Relationship Diagram
 
-<img width="1809" height="1066" alt="image" src="https://github.com/user-attachments/assets/9b581c84-70f1-4683-b1fd-c60d8d3da870" />
+```mermaid
+erDiagram
+  STUDENTS ||--o{ ENROLLMENTS : enrolls
+  COURSES ||--o{ SECTIONS : contains
+  SECTIONS ||--o{ ENROLLMENTS : "has"
+  DEPARTMENTS ||--o{ COURSES : offers
+  DEPARTMENTS ||--o{ INSTRUCTORS : employs
+  INSTRUCTORS ||--|| DEPARTMENTS : heads
+  INSTRUCTORS ||--o{ SECTIONS : teaches
+  COURSELEVELS ||--o{ COURSES : classifies
+  SECTIONSTATUS ||--o{ SECTIONS : marks
+  STAFF ||--|| PAYROLL : receives
+
+  STUDENTS {
+    int id PK
+    varchar firstName
+    varchar lastName
+    varchar email UK
+  }
+
+  COURSES {
+    int id PK
+    varchar courseNumber
+    varchar courseName
+    int departmentID FK
+    int levelID FK
+  }
+
+  SECTIONS {
+    int id PK
+    varchar sectionNumber
+    varchar semester
+    int year
+    int courseID FK
+    int instructorID FK
+    int statusID FK
+  }
+
+  DEPARTMENTS {
+    int id PK
+    varchar departmentName
+    int headOfDepartmentID FK
+  }
+
+  INSTRUCTORS {
+    int id PK
+    varchar firstName
+    varchar lastName
+    date startDate
+    int departmentID FK
+  }
+
+  STAFF {
+    int id PK
+    varchar firstName
+    varchar lastName
+    date startDate
+    varchar role
+  }
+
+  ENROLLMENTS {
+    int id PK
+    int studentID FK
+    int sectionID FK
+    date enrollmentDate
+  }
+
+  PAYROLL {
+    int id PK
+    decimal salary
+    varchar payPeriod
+  }
+
+  COURSELEVELS {
+    int id PK
+    varchar levelName
+  }
+
+  SECTIONSTATUS {
+    int id PK
+    varchar statusName
+  }
+```
+
+---
+
+## Triggers (`002_triggers.sql`)
+
+| Trigger | Table | Event | What it does |
+|---------|-------|-------|--------------|
+| `trg_ticket_updated_at` | `ticket` | `BEFORE UPDATE` | Stamps `updated_at = NOW()` automatically |
+
+---
+
+## Views (`003_views.sql`)
+
+| View | Description |
+|------|-------------|
+| `CourseSection` | All courses and their department are listed |
+
+---
+
+## Schema Overview (flow)
+
+```mermaid
+
+```
+
+---
+
+## Docs
+
+Extended documentation lives in [`docs/`](docs/):
+
+| File | Contents |
+|------|---------|
+| `docs/schema.md` | Detailed column-level notes and constraint explanations |
+| `docs/triggers.md` | Trigger logic walk-through with example scenarios |
+| `docs/views.md` | View query explanations and sample output |
+| `docs/sla.md` | SLA policy design and breach-detection logic |
