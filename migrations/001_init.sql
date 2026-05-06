@@ -92,7 +92,7 @@ COMMENT ON COLUMN "Students"."email" IS 'Email must be unique';
 COMMENT ON COLUMN "Departments"."headOfDepartmentID" IS 'Must have one head of department';
 
 -- create comment for section status
-COMMENT ON COLUMN "SectionStatus"."statusName" IS 'Must be one of: {Open, In Progress, Closed}';
+COMMENT ON COLUMN "SectionStatus"."statusName" IS 'Must be one of: {Open, In Progress, Closed, Waitlisted, Canceled}';
 
 
 -- create link: courses to their owning deparment
