@@ -18,7 +18,7 @@ A fully-relational university database schema built for **PostgreSQL / Supabase*
 
 
 ## Entity-Relationship Diagram
-mermaid
+```mermaid
 erDiagram
   STUDENTS ||--o{ ENROLLMENTS : enrolls
   COURSES ||--o{ SECTIONS : contains
@@ -100,7 +100,7 @@ erDiagram
     int id PK
     varchar statusName
   }
----
+```
 
 ## Triggers (`002_triggers.sql`)
 
