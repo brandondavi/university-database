@@ -15,8 +15,7 @@ It tracks users, agents, support tickets, SLA policies, assignment history, and 
 | [`003_views.sql`](003_views.sql) | Create a dashboard view & more (Currently only 1) |
 | [`004_queries_example.sql`](004_queries_example.sql) | Example SELECT / UPDATE / DELETE queries |
 
-> Additional deep-dives are in [`docs/`](docs/).
-
+> Proposal is in [`Docs/`](Docs/).
 ---
 
 ## Entity-Relationship Diagram
