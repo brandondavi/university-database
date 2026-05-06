@@ -1,7 +1,7 @@
 -- 002_seed_data.sql
 -- Description: Sample data insertion (Min 5 rows per table)
 
--- 1. independent tables
+-- independent tables
 INSERT INTO "CourseLevels" ("levelName") VALUES
 ('Lower Division introductory courses'),
 ('Lower Division intermediate courses'),
@@ -31,6 +31,7 @@ INSERT INTO "Departments" ("departmentName") VALUES
 ('English'),
 ('Business');
 
+-- depedent table on department
 INSERT INTO "Instructors" ("firstName", "lastName", "startDate", "departmentID") VALUES
 ('John', 'Doe', '2015-08-20', 1), -- cs
 ('Jane', 'Smith', '2018-01-15', 2), -- math
@@ -38,6 +39,8 @@ INSERT INTO "Instructors" ("firstName", "lastName", "startDate", "departmentID")
 ('Emily', 'Davis', '2020-08-15', 4), -- eng
 ('David', 'Wilson', '2019-01-10', 5); -- bus
 
+-- dependent on instructors
+-- force the department to have one head of department at all times
 UPDATE "Departments" SET "headOfDepartmentID" = 1 WHERE "id" = 1;
 UPDATE "Departments" SET "headOfDepartmentID" = 2 WHERE "id" = 2;
 UPDATE "Departments" SET "headOfDepartmentID" = 3 WHERE "id" = 3;

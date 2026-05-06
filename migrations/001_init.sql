@@ -122,5 +122,5 @@ ALTER TABLE "Enrollments" ADD FOREIGN KEY ("sectionID") REFERENCES "Sections" ("
 -- create link: payrol to their owning staff
 ALTER TABLE "Payroll" ADD FOREIGN KEY ("id") REFERENCES "Staff" ("id") DEFERRABLE INITIALLY IMMEDIATE;
 
--- create link: department to their owning head of department
+-- create link: department to their owning head of department referencing instructors
 ALTER TABLE "Departments" ADD FOREIGN KEY ("headOfDepartmentID") REFERENCES "Instructors" ("id") DEFERRABLE INITIALLY IMMEDIATE;
