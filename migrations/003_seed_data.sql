@@ -1,5 +1,7 @@
 -- 002_seed_data.sql
--- Description: Sample data insertion (Min 5 rows per table)
+-- Description: Sample data insertion
+-- Authors: Jovanna, Jovanni, Brandon
+
 
 -- independent tables
 INSERT INTO "CourseLevels" ("levelName") VALUES

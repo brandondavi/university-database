@@ -1,4 +1,5 @@
 -- 001_init.sql
+-- Authors: Jovanna, Jovanni, Brandon
 -- Description: Schema creation for University Registration System
 
 -- Create students table to hold student info
