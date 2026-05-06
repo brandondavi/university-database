@@ -2,7 +2,7 @@
 
 A fully-relational university database schema built for **PostgreSQL / Supabase**. It tracks users, agents, support tickets, SLA policies, assignment history, and comments. --- 
 
-## Run Order
+## Run Orders
 
 | File | Purpose |
 |------|---------|
