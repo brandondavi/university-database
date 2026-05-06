@@ -3,12 +3,12 @@
 
 -- 1. independent tables
 INSERT INTO "CourseLevels" ("levelName") VALUES
-("Lower Division introductory courses"),
-("Lower Division intermediate courses"),
-("Upper-division courses"),
-("Senior courses"),
-("Graduate courses"),
-("Advanced graduate courses");
+('Lower Division introductory courses'),
+('Lower Division intermediate courses'),
+('Upper-division courses'),
+('Senior courses'),
+('Graduate courses'),
+('Advanced graduate courses');
 
 INSERT INTO "SectionStatus" ("statusName") VALUES
 ('Open'),
