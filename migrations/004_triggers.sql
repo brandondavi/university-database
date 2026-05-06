@@ -1,4 +1,3 @@
-
 -- trigger
 -- prevents negative value on salary
 CREATE OR REPLACE FUNCTION check_salary_positive()
