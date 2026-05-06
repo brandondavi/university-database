@@ -10,10 +10,10 @@ It tracks users, agents, support tickets, SLA policies, assignment history, and 
 | File | Purpose |
 |------|---------|
 | [`001_init.sql`](001_init.sql) | Create all tables, constraints, and indexes |
-| [`002_seed_data.sql`](002_seed_data.sql) | Insert sample/seed data |
 | [`002_triggers.sql`](002_triggers.sql) | Add triggers for automation & business rules (currently only 1) |
-| [`003_views.sql`](003_views.sql) | Create a dashboard view & more (Currently only 1) |
-| [`004_queries_example.sql`](004_queries_example.sql) | Example SELECT / UPDATE / DELETE queries |
+| [`003_seed_data.sql`](003_seed_data.sql) | Insert sample/seed data |
+| [`004_views.sql`](004_views.sql) | Create a dashboard view & more (Currently only 1) |
+| [`005_queries.sql`](005_queries.sql) | Example SELECT / UPDATE / DELETE queries |
 
 > Proposal is in [`Docs/`](Docs/).
 ---
@@ -114,7 +114,7 @@ erDiagram
 
 ---
 
-## Views (`003_views.sql`)
+## Views (`004_views.sql`)
 
 | View | Description |
 |------|-------------|
