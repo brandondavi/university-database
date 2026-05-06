@@ -123,13 +123,6 @@ erDiagram
 
 ---
 
-## Schema Overview (flow)
-
-```mermaid
-
-```
-
----
 
 ## Docs
 
@@ -137,7 +130,5 @@ Extended documentation lives in [`docs/`](docs/):
 
 | File | Contents |
 |------|---------|
-| `docs/schema.md` | Detailed column-level notes and constraint explanations |
-| `docs/triggers.md` | Trigger logic walk-through with example scenarios |
-| `docs/views.md` | View query explanations and sample output |
-| `docs/sla.md` | SLA policy design and breach-detection logic |
+| `docs/proposal.md` | Schema documentation |
+
