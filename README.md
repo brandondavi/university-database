@@ -1,31 +1,16 @@
-# University Database — SQL Migrations
+# University Database — SQL Migrations 
 
-A fully relational university database schema built for **PostgreSQL / Supabase**.   
-This database tracks students, courses, sections, departments, instructors, staff, payroll, course levels, section statuses, and student enrollments.
+A fully-relational university database schema built for **PostgreSQL / Supabase**. It tracks users, agents, support tickets, SLA policies, assignment history, and comments. --- 
 
----
+## Run Order | File | Purpose | |------|---------| | [001_init.sql](001_init.sql) | Create all tables, constraints, and indexes | | [002_triggers.sql](002_triggers.sql) | Add triggers for automation & business rules (currently only 1) | | [003_seed_data.sql](003_seed_data.sql) | Insert sample/seed data | | [004_views.sql](004_views.sql) | Create a dashboard view & more (Currently only 1) | | [005_queries.sql](005_queries.sql) | Example SELECT / UPDATE / DELETE queries | > Proposal is in [Docs/](Docs/). --- 
 
-## Run Order
-
-| File | Purpose |
-|------|---------|
-| [`001_init.sql`](001_init.sql) | Create all tables, constraints, and indexes |
-| [`002_triggers.sql`](002_triggers.sql) | Add triggers for automation and business rules |
-| [`003_seed_data.sql`](003_seed_data.sql) | Insert sample/seed data |
-| [`004_views.sql`](004_views.sql) | Create helpful views for reviewing database information |
-| [`005_queries.sql`](005_queries.sql) | Example SELECT, UPDATE, and DELETE queries |
-
-> Proposal documentation is located in the [`docs/`](docs/) folder.
-
----
 
 ## Entity-Relationship Diagram
-
-```mermaid
+mermaid
 erDiagram
   STUDENTS ||--o{ ENROLLMENTS : enrolls
   COURSES ||--o{ SECTIONS : contains
-  SECTIONS ||--o{ ENROLLMENTS : has
+  SECTIONS ||--o{ ENROLLMENTS : "has"
   DEPARTMENTS ||--o{ COURSES : offers
   DEPARTMENTS ||--o{ INSTRUCTORS : employs
   INSTRUCTORS ||--|| DEPARTMENTS : heads
@@ -103,7 +88,6 @@ erDiagram
     int id PK
     varchar statusName
   }
-
 ---
 
 ## Triggers (`002_triggers.sql`)
